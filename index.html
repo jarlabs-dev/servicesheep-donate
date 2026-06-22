@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Help launch Service Sheep — Donate</title>
+  <!-- [EDIT] meta description — refine to match Service Sheep's real purpose -->
+  <meta name="description" content="Service Sheep is almost ready to launch. A small, one-time gift covers the app store fees we need to publish it. A donation isn't required — every bit helps.">
+
+  <!-- Social share preview (Open Graph + Twitter Card) -->
+  <!-- [EDIT] og-image.jpg must be a 1200×630 JPG/PNG (NOT webp) added to /assets/ -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://donate.servicesheep.com/">
+  <meta property="og:site_name" content="Service Sheep">
+  <meta property="og:title" content="Support the project">
+  <meta property="og:description" content="Help us launch Service Sheep and keep it grazing.">
+  <meta property="og:image" content="https://donate.servicesheep.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Support the Service Sheep project — help us launch the app">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Support the Project">
+  <meta name="twitter:description" content="Help us launch the app">
+  <meta name="twitter:image" content="https://donate.servicesheep.com/assets/og-image.jpg">
+
+  <!-- Favicons / PWA -->
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Service Sheep">
+  <meta name="theme-color" content="#0e7490">
+
+  <!-- Manrope — self-hosted (no external request, so the page never stalls on a blocked font server) -->
+  <link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/fonts.css">
+
+  <!-- Design system -->
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/donate.css">
+
+  <!-- Component registry + page logic (modules defer automatically) -->
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/donate.js"></script>
+</head>
+<body>
+  <!-- ── Header ─────────────────────────────────────────────── -->
+  <header class="container container--lg site-header">
+    <a class="wordmark" href="/">
+      <span class="wordmark__mark">
+        <img src="/favicon-96x96.png" alt="" width="36" height="36">
+      </span>
+      <span class="wordmark__text">Service Sheep</span>
+    </a>
+  </header>
+
+  <main>
+    <!-- ── Hero ─────────────────────────────────────────────── -->
+    <section class="container container--lg hero">
+      <!-- [EDIT] headline + lead — describe Service Sheep in your own words -->
+      <h1 class="hero__title">Help bring Service Sheep to the app stores</h1>
+      <p class="hero__lead">
+        Service Sheep is built and ready. To publish the app, we need to cover a
+        few one-time store fees. A gift isn't required — but if you'd like to help
+        us launch, here's exactly where it goes.
+      </p>
+      <div class="hero__actions">
+        <ui-button href="#donate" size="large" data-label="See how to help">
+          <svg slot="trailing" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </ui-button>
+      </div>
+    </section>
+
+    <!-- ── Cost breakdown + goal ────────────────────────────── -->
+    <section class="container container--lg section--tight">
+      <article class="card cost-card">
+        <h2 class="cost-card__heading">What your gift covers</h2>
+        <p class="cost-card__sub">Every peso goes straight to these launch costs — nothing else.</p>
+
+        <ul class="cost-list">
+          <li class="cost-row">
+            <div>
+              <div class="cost-row__name">Apple Developer Program</div>
+              <div class="cost-row__desc">Required to publish on the iPhone App Store · billed yearly</div>
+            </div>
+            <div class="cost-row__price">$99<span class="cost-row__price-sub">≈ ₱6,020 / year</span></div>
+          </li>
+          <li class="cost-row">
+            <div>
+              <div class="cost-row__name">Google Play Developer</div>
+              <div class="cost-row__desc">Required to publish on Android · one-time fee</div>
+            </div>
+            <div class="cost-row__price">$25<span class="cost-row__price-sub">≈ ₱1,520 once</span></div>
+          </li>
+          <li class="cost-row cost-row--total">
+            <div class="cost-row__name">Total to launch</div>
+            <div class="cost-row__price">$125<span class="cost-row__price-sub">≈ ₱7,600</span></div>
+          </li>
+        </ul>
+
+        <!-- [EDIT] update the fill width and raised amount as gifts come in -->
+        <div class="progress">
+          <div class="progress__track">
+            <div class="progress__fill" style="width: 39.5%"></div>
+          </div>
+          <div class="progress__meta">
+            <span class="progress__raised">$49 raised so far</span>
+            <span class="progress__goal">Goal: $125</span>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ── Reassurance ──────────────────────────────────────── -->
+    <section class="container container--lg section--tight">
+      <div class="reassurance">
+        <div class="reassure">
+          <span class="reassure__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm.9 15.4v.9a.9.9 0 0 1-1.8 0v-.86c-1.2-.2-2.2-.83-2.6-1.86a.9.9 0 0 1 1.66-.7c.22.5.86.86 1.74.86.98 0 1.5-.42 1.5-.98 0-.5-.36-.78-1.7-1.12-1.46-.36-2.9-.92-2.9-2.54 0-1.16.82-1.98 2.1-2.24V7.5a.9.9 0 0 1 1.8 0v.84c1 .22 1.78.78 2.16 1.6a.9.9 0 1 1-1.64.74c-.22-.46-.7-.78-1.42-.78-.9 0-1.36.4-1.36.86 0 .46.4.7 1.78 1.06 1.7.44 2.82 1.04 2.82 2.6 0 1.22-.86 2.08-2.24 2.34z"/></svg>
+          </span>
+          <div>
+            <div class="reassure__title">100% goes to costs</div>
+            <p class="reassure__text">Your gift only pays the store fees above.</p>
+          </div>
+        </div>
+        <div class="reassure">
+          <span class="reassure__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM8.5 9.5a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6zm7 0a1.3 1.3 0 1 1 0 2.6 1.3 1.3 0 0 1 0-2.6zM12 17.5c-1.9 0-3.6-1-4.5-2.5a.9.9 0 0 1 1.55-.92c.6 1 1.7 1.62 2.95 1.62s2.35-.62 2.95-1.62a.9.9 0 1 1 1.55.92c-.9 1.5-2.6 2.5-4.5 2.5z"/></svg>
+          </span>
+          <div>
+            <div class="reassure__title">No pressure</div>
+            <p class="reassure__text">A donation is never required to use the app.</p>
+          </div>
+        </div>
+        <div class="reassure">
+          <span class="reassure__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.2l7 3v5c0 4.7-3.1 7.9-7 9.3-3.9-1.4-7-4.6-7-9.3v-5l7-3zm3.7 6.1a.9.9 0 0 0-1.27-.02L11 11.7 9.57 10.3a.9.9 0 1 0-1.26 1.28l2.06 2.03a.9.9 0 0 0 1.27 0l4.06-4a.9.9 0 0 0 .01-1.28z"/></svg>
+          </span>
+          <div>
+            <div class="reassure__title">Pay in your own app</div>
+            <p class="reassure__text">Scan a QR code and send straight from GCash, Maya, or your bank.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Donate ───────────────────────────────────────────── -->
+    <section class="container container--lg section" id="donate">
+      <header style="margin-bottom: 1.5rem;">
+        <!-- [EDIT] section copy -->
+        <h2 class="section__title">Send your gift</h2>
+        <p class="section__lead">Pick how you'd like to send it, then scan the code with your app. Any amount helps.</p>
+      </header>
+
+      <div class="card donate__panel">
+        <div class="qr-tabs" role="tablist" aria-label="Choose how to send your gift">
+          <button class="qr-tab" id="tab-gcash" type="button" role="tab" aria-selected="true" aria-controls="panel-gcash">GCash</button>
+          <button class="qr-tab" id="tab-maya" type="button" role="tab" aria-selected="false" aria-controls="panel-maya" tabindex="-1">Maya</button>
+          <button class="qr-tab" id="tab-bpi" type="button" role="tab" aria-selected="false" aria-controls="panel-bpi" tabindex="-1">BPI / InstaPay</button>
+        </div>
+
+        <div class="qr-panel" id="panel-gcash" role="tabpanel" aria-labelledby="tab-gcash">
+          <img class="qr-panel__code" src="/assets/qr_gcash.webp" alt="GCash QR code for Service Sheep" width="1284" height="2505" loading="lazy">
+        </div>
+        <div class="qr-panel" id="panel-maya" role="tabpanel" aria-labelledby="tab-maya" hidden>
+          <img class="qr-panel__code" src="/assets/qr_maya.webp" alt="Maya QR code for Service Sheep" width="1284" height="1464" loading="lazy">
+        </div>
+        <div class="qr-panel" id="panel-bpi" role="tabpanel" aria-labelledby="tab-bpi" hidden>
+          <img class="qr-panel__code" src="/assets/qr_bpi.webp" alt="BPI / InstaPay QR code for Service Sheep" width="1284" height="1368" loading="lazy">
+        </div>
+
+        <!-- [EDIT] closing note -->
+        <p class="donate__note">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z" stroke="currentColor" stroke-width="2"/><path d="M8 12l2.5 2.5L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Send any amount you like — there's no checkout step. We add each gift to the progress bar above by hand, so thank you for your patience.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ───────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <div class="container container--lg">
+      <div class="site-footer__brand">Service Sheep</div>
+      <!-- [EDIT] contact email -->
+      <p class="site-footer__text">Questions about donating? Email <a href="mailto:hello@servicesheep.com">hello@servicesheep.com</a></p>
+    </div>
+  </footer>
+
+  <ui-toast-host></ui-toast-host>
+</body>
+</html>

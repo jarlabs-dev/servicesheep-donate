@@ -1,0 +1,249 @@
+/* donate.css — page-level layout for the donation site.
+ * Built only from tokens.css custom properties (no hard-coded colours/type).
+ * BEM blocks here (.cost-card, .progress, .amount-tile, …) are candidates to
+ * promote into the <ui-*> component library later if reused. */
+
+/* ── Page shell ─────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+.container {
+  max-width: 760px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+/* Wider shell for the single-column donation page */
+.container--lg { max-width: 880px; }
+
+.section { padding-block: clamp(2.5rem, 6vw, 4rem); }
+.section--tight { padding-block: clamp(1.5rem, 4vw, 2.5rem); }
+
+/* Shared section heading */
+.section__eyebrow {
+  font: var(--font-label-large);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: 0.5rem;
+}
+.section__title {
+  font: var(--font-headline-medium);
+  color: var(--color-text-primary);
+}
+.section__lead {
+  font: var(--font-body-large);
+  color: var(--color-text-secondary);
+  margin-top: 0.75rem;
+  max-width: 52ch;
+}
+
+/* ── Header ─────────────────────────────────────────────────── */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.25rem;
+}
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  color: var(--color-text-primary);
+}
+.wordmark__mark {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.625rem;
+  overflow: hidden;
+}
+.wordmark__mark img { width: 100%; height: 100%; object-fit: cover; }
+.wordmark__text { font: var(--font-title-large); }
+
+/* ── Hero ───────────────────────────────────────────────────── */
+.hero { text-align: center; padding-block: clamp(2.5rem, 7vw, 4.5rem) clamp(1.5rem, 4vw, 2.5rem); }
+.hero__eyebrow {
+  font: var(--font-label-large);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-brand-primary);
+  margin-bottom: 0.75rem;
+}
+.hero__title {
+  font: var(--font-headline-large);
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-text-primary);
+  max-width: 18ch;
+  margin-inline: auto;
+}
+.hero__lead {
+  font: var(--font-title-medium);
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  max-width: 46ch;
+  margin: 1rem auto 0;
+}
+.hero__actions { margin-top: 1.75rem; display: inline-flex; }
+
+/* ── Card (generic surface) ─────────────────────────────────── */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-cards-resting);
+  padding: clamp(1.25rem, 4vw, 2rem);
+}
+
+/* ── Cost breakdown ─────────────────────────────────────────── */
+.cost-card__heading {
+  font: var(--font-title-large);
+  margin-bottom: 0.25rem;
+}
+.cost-card__sub {
+  font: var(--font-body-medium);
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+}
+.cost-list { list-style: none; padding: 0; margin: 0; }
+.cost-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1rem;
+  border-top: 1px solid var(--color-border-subtle);
+}
+.cost-row__name { font: var(--font-title-medium); color: var(--color-text-primary); }
+.cost-row__desc { font: var(--font-body-medium); color: var(--color-text-muted); margin-top: 0.125rem; }
+.cost-row__price { font: var(--font-title-medium); color: var(--color-text-primary); white-space: nowrap; }
+.cost-row__price-sub { display: block; font: var(--font-body-small); color: var(--color-text-muted); text-align: end; margin-top: 0.125rem; }
+
+.cost-row--total {
+  border-top: 2px solid var(--color-border);
+  margin-top: 0.25rem;
+  padding-bottom: 0;
+}
+.cost-row--total .cost-row__name { font: var(--font-title-large); }
+.cost-row--total .cost-row__price { font: var(--font-headline-small); color: var(--color-brand-primary); }
+
+/* Progress toward goal */
+.progress { margin-top: 1.5rem; }
+.progress__track {
+  height: 0.75rem;
+  background: var(--color-surface-container);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress__fill {
+  height: 100%;
+  background: var(--color-brand-primary);
+  border-radius: 999px;
+  transition: width 400ms ease;
+}
+.progress__meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: 0.625rem;
+}
+.progress__raised { font: var(--font-label-large); color: var(--color-text-primary); }
+.progress__goal { font: var(--font-body-medium); color: var(--color-text-muted); }
+
+/* ── Reassurance row ────────────────────────────────────────── */
+.reassurance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+.reassure { display: flex; gap: 0.875rem; align-items: flex-start; }
+.reassure__icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  /* White chip on the page background — reads as a clean badge, no clash */
+  background: var(--color-surface);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-brand-primary);
+}
+.reassure__icon svg { width: 1.375rem; height: 1.375rem; }
+.reassure__title { font: var(--font-title-small); color: var(--color-text-primary); }
+.reassure__text { font: var(--font-body-medium); color: var(--color-text-secondary); margin-top: 0.125rem; }
+
+/* ── Donation section (QR tabs) ─────────────────────────────── */
+.donate__panel { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* Tablist — text tabs on a shared bottom rail */
+.qr-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+.qr-tab {
+  appearance: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.625rem 0.875rem;
+  margin-bottom: -1px; /* sit the active underline on the rail */
+  font: var(--font-title-small);
+  color: var(--color-text-secondary);
+  border-bottom: 2px solid transparent;
+  border-radius: var(--radius-field) var(--radius-field) 0 0;
+  transition: color 120ms ease, border-color 120ms ease, background-color 120ms ease;
+}
+.qr-tab:hover { color: var(--color-text-primary); }
+.qr-tab:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-brand-primary) 40%, transparent);
+}
+.qr-tab[aria-selected="true"] {
+  color: var(--color-brand-primary);
+  border-bottom-color: var(--color-brand-primary);
+}
+
+/* QR panel — centered code + hint */
+.qr-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+.qr-panel[hidden] { display: none; }
+.qr-panel__code {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-card);
+}
+/* Closing note */
+.donate__note {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 1.125rem;
+  background: var(--color-surface-variant);
+  border-radius: var(--radius-field);
+  font: var(--font-body-medium);
+  color: var(--color-text-secondary);
+}
+.donate__note svg { flex-shrink: 0; width: 1.25rem; height: 1.25rem; color: var(--color-success); }
+
+/* ── Footer ─────────────────────────────────────────────────── */
+.site-footer {
+  border-top: 1px solid var(--color-border-subtle);
+  text-align: center;
+  padding-block: 2.5rem;
+}
+.site-footer__brand { font: var(--font-title-small); color: var(--color-text-primary); }
+.site-footer__text { font: var(--font-body-medium); color: var(--color-text-muted); margin-top: 0.5rem; }
+.site-footer__text a { color: var(--color-brand-link); }
